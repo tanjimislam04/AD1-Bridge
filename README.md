@@ -38,7 +38,7 @@ AccessData FTK Imager (`.ad1`) is one of the most widely used logical forensic i
 ### Linux
 1. Open terminal and clone directly into your Autopsy Python modules folder:
    ```bash
-   git clone https://github.com/<your-username>/AD1-Bridge.git ~/.autopsy/dev/python_modules/AD1-Bridge
+   git clone https://github.com/tanjimislam04/AD1-Bridge.git ~/.autopsy/dev/python_modules/AD1-Bridge
    ```
 2. Restart Autopsy.
 

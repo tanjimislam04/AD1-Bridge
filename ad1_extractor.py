@@ -23,8 +23,13 @@ def get_native_binary():
 
     if system == "linux" and machine in ("x86_64", "amd64"):
         bundled = os.path.join(SCRIPT_DIR, "bin", "linux_x86_64", "ad1extract")
-        if os.path.isfile(bundled) and os.access(bundled, os.X_OK):
-            return bundled
+        if os.path.isfile(bundled):
+            try:
+                os.chmod(bundled, 0o755)
+            except Exception:
+                pass
+            if os.access(bundled, os.X_OK):
+                return bundled
 
     if system == "windows":
         bundled = os.path.join(SCRIPT_DIR, "bin", "windows_x64", "ad1extract.exe")
@@ -97,6 +102,7 @@ def extract_with_python(ad1_path, output_dir, verbose=False):
                     extract_node(child, target_path)
             else:
                 try:
+                    os.makedirs(os.path.dirname(target_path), exist_ok=True)
                     data = img.read_file(node)
                     with open(target_path, "wb") as f:
                         f.write(data)

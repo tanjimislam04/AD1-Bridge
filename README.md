@@ -35,17 +35,38 @@ AccessData FTK Imager (`.ad1`) is one of the most widely used logical forensic i
 
 ## 📦 Installation for Autopsy
 
-### Linux
-1. Open terminal and clone directly into your Autopsy Python modules folder:
-   ```bash
-   git clone https://github.com/tanjimislam04/AD1-Bridge.git ~/.autopsy/dev/python_modules/AD1-Bridge
-   ```
-2. Restart Autopsy.
+### 🎯 Universal Method (Recommended for All OS)
+Because the exact plugin path can differ between operating systems, distros, and Autopsy versions, the easiest way to find your system's exact folder is inside Autopsy:
 
-### Windows
-1. Download this repository as a `.zip` and extract it.
-2. In Autopsy, go to **Tools** $\rightarrow$ **Python Plugins**.
-3. Copy the `AD1-Bridge` folder into the opened directory.
+1. Launch **Autopsy**.
+2. In the top menu bar, click **Tools** $\rightarrow$ **Python Plugins**.
+   *(Autopsy will instantly open your machine's exact Python plugin folder in your file manager).*
+3. Copy or clone the `AD1-Bridge` folder into that opened folder:
+   ```bash
+   git clone https://github.com/tanjimislam04/AD1-Bridge.git
+   ```
+4. Restart Autopsy.
+
+---
+
+### 💻 Direct Terminal Installation (Linux)
+For Linux users installing directly via CLI:
+```bash
+# Standard Autopsy (NetBeans/Source build):
+mkdir -p ~/.autopsy/dev/python_modules
+git clone https://github.com/tanjimislam04/AD1-Bridge.git ~/.autopsy/dev/python_modules/AD1-Bridge
+
+# If your installation uses ~/.autopsy/python_modules:
+# mkdir -p ~/.autopsy/python_modules
+# git clone https://github.com/tanjimislam04/AD1-Bridge.git ~/.autopsy/python_modules/AD1-Bridge
+```
+
+---
+
+### 🪟 Windows Manual Installation
+1. Click **Code** $\rightarrow$ **Download ZIP** on GitHub and extract the archive.
+2. In Autopsy, open **Tools** $\rightarrow$ **Python Plugins** (this opens `%AppData%\autopsy\python_modules\`).
+3. Copy the extracted `AD1-Bridge` folder into that directory.
 4. Restart Autopsy.
 
 ---

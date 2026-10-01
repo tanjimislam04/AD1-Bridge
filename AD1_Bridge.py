@@ -176,11 +176,16 @@ class AD1BridgeDataSourceIngestModule(DataSourceIngestModule):
 
                 # Locate actual evidence root inside the extracted directory
                 ingest_root = target_out_dir
-                # If extraction created a partition folder with [root], find the cleanest root
-                for root_dir, dirs, files in os.walk(target_out_dir):
-                    if "[root]" in dirs:
-                        ingest_root = os.path.join(root_dir, "[root]")
-                        break
+                try:
+                    subdirs = [os.path.join(target_out_dir, d) for d in os.listdir(target_out_dir) if os.path.isdir(os.path.join(target_out_dir, d))]
+                    if len(subdirs) == 1:
+                        inner_root = os.path.join(subdirs[0], "[root]")
+                        if os.path.isdir(inner_root):
+                            ingest_root = inner_root
+                        else:
+                            ingest_root = subdirs[0]
+                except Exception:
+                    pass
 
                 # Automatically register into Autopsy as a new Data Source!
                 progressBar.progress("Registering extracted evidence into Case...")

@@ -74,14 +74,26 @@ git clone https://github.com/tanjimislam04/AD1-Bridge.git ~/.autopsy/dev/python_
 ## 🔍 How to Use in Autopsy
 
 1. **Add Data Source:**
-   - In Autopsy, click **Add Data Source**.
+   - In Autopsy, click **Add Data Source** (or right-click an existing Logical File in your case tree $\rightarrow$ **Run Ingest Modules**).
    - Choose **Logical Files**.
    - Add your `.ad1` file (or a folder containing `.ad1` images).
-2. **Select Ingest Modules:**
-   - In the Ingest Modules checklist, check **AD1 Auto-Bridge**.
+2. **Configure Ingest Modules:**
+   - ⚠️ **IMPORTANT:** In the Ingest Modules checklist, you MUST check:
+     ```text
+     ☑ AD1 Auto-Bridge
+     ```
+   - *(Tip for Linux Users)*: If Autopsy warns that an Ingest job cannot start, make sure Windows-only modules (e.g. *YARA Analyzer*) or unlicensed modules (e.g. *Cyber Triage*) are unchecked.
 3. **Analyze:**
    - Click **Finish**.
-   - AD1-Bridge extracts the evidence in the background and automatically injects the extracted directory tree (Windows, Users, Registry hives, Recycle.Bin, etc.) as a new Data Source in your case tree.
+   - AD1-Bridge extracts the evidence in the background, preserves all timestamps, and automatically injects the extracted directory tree (`Windows`, `Users`, Registry hives, `$Recycle.Bin`, etc.) as a new native Data Source in your case tree!
+
+---
+
+### 💡 Linux Troubleshooting Tip
+If Autopsy's built-in **Windows Prefetch Analyzer** displays an error during analysis on Linux (`Exec failed, error: 13 Permission denied`), ensure execute permissions are set on Autopsy's internal artifact parser binary:
+```bash
+chmod +x /path/to/autopsy/autopsy/markmckinnon/mm_artifact_parser_x64_linux
+```
 
 ---
 

@@ -118,8 +118,14 @@ class AD1BridgeDataSourceIngestModule(DataSourceIngestModule):
         current_case = Case.getCurrentCase()
         file_manager = current_case.getServices().getFileManager()
 
-        # Find all files in the current data source
-        all_files = file_manager.findFiles(dataSource, "%", "/")
+        # Find all files in the current data source (any path depth)
+        try:
+            all_files = file_manager.findFiles(dataSource, "%.ad1")
+            if not all_files:
+                all_files = file_manager.findFiles(dataSource, "%")
+        except Exception:
+            all_files = file_manager.findFiles(dataSource, "%", "/")
+
         ad1_targets = []
 
         for f in all_files:
@@ -127,7 +133,7 @@ class AD1BridgeDataSourceIngestModule(DataSourceIngestModule):
                 continue
             name_lower = f.getName().lower()
             if name_lower.endswith(".ad1"):
-                local_path = f.getLocalAbsPath()
+                local_path = f.getLocalAbsPath() or f.getLocalPath()
                 if local_path and os.path.isfile(local_path):
                     ad1_targets.append((f, local_path))
 
@@ -194,16 +200,27 @@ class AD1BridgeDataSourceIngestModule(DataSourceIngestModule):
 
                 current_case.notifyAddingDataSource(device_id)
 
+                dir_list = ArrayList()
+                dir_list.add(ingest_root)
+
                 new_data_source = file_manager.addLocalFilesDataSource(
                     str(device_id),
                     "AD1: " + clean_name,
                     "",
-                    [ingest_root],
+                    dir_list,
                     progress_updater
                 )
 
+                if new_data_source:
+                    try:
+                        current_case.notifyDataSourceAdded(new_data_source.getRootDirectory(), device_id)
+                    except Exception:
+                        pass
                 for added_file in progress_updater.getFiles():
-                    current_case.notifyDataSourceAdded(added_file, device_id)
+                    try:
+                        current_case.notifyDataSourceAdded(added_file, device_id)
+                    except Exception:
+                        pass
 
                 extracted_sources.append(filename)
 

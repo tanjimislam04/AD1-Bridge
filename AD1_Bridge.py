@@ -21,10 +21,10 @@ from org.sleuthkit.autopsy.ingest import (
     DataSourceIngestModule,
     IngestMessage,
     IngestModule,
-    IngestModuleException,
     IngestModuleFactoryAdapter,
     IngestServices,
 )
+from org.sleuthkit.autopsy.ingest.IngestModule import IngestModuleException
 from org.sleuthkit.datamodel import BlackboardArtifact, BlackboardAttribute
 
 

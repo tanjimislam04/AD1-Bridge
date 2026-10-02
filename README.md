@@ -82,6 +82,11 @@ git clone https://github.com/tanjimislam04/AD1-Bridge.git ~/.autopsy/dev/python_
      ```text
      ☑ AD1 Auto-Bridge
      ```
+
+   <p align="center">
+     <img src="assets/configure_ingest.jpeg" alt="Select AD1 Auto-Bridge in Configure Ingest" width="800"/>
+   </p>
+
    - *(Tip for Linux Users)*: If Autopsy warns that an Ingest job cannot start, make sure Windows-only modules (e.g. *YARA Analyzer*) or unlicensed modules (e.g. *Cyber Triage*) are unchecked.
 3. **Analyze:**
    - Click **Finish**.

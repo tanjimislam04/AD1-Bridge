@@ -1,6 +1,11 @@
 MIT License
 
-Copyright (c) 2026
+Copyright (c) 2025–2026 Team NullX
+Author / sole GitHub owner: Md. Tanjim Islam (tanjimislam04)
+  https://github.com/tanjimislam04
+
+AD1-Bridge is an official product of Team NullX, created and maintained by
+Md. Tanjim Islam (tanjimislam04).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +24,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---------------------------------------------------------------------------
+NOTICE - Team NullX product identity
+
+  Product:   AD1-Bridge
+  Team:      Team NullX
+  Author:    Md. Tanjim Islam (tanjimislam04)
+  Repo:      https://github.com/tanjimislam04/AD1-Bridge
+
+  This project is the official Team NullX AD1 evidence bridge & forensic engine.
+  “Team NullX” and “AD1-Bridge” are used to identify this product
+  and its authors. You may fork and modify under the MIT terms above;
+  please keep this NOTICE and copyright attribution when you redistribute.

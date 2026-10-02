@@ -143,4 +143,6 @@ Contributions are welcome! Please feel free to submit a Pull Request or open an 
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+MIT - see [LICENSE](LICENSE).
+
+**AD1-Bridge** is an official **Team NullX** product, created and maintained by [Md. Tanjim Islam (tanjimislam04)](https://github.com/tanjimislam04).
